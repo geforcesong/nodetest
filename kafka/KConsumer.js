@@ -9,7 +9,8 @@ class KConsumer {
             autoCommit: tmpOpts.autoCommit || true,
             fetchMaxWaitMs: tmpOpts.fetchMaxWaitMs || 1000,
             fetchMaxBytes: tmpOpts.fetchMaxBytes || 1024 * 1024,
-            encoding: tmpOpts.encoding || "buffer"
+            encoding: tmpOpts.encoding || "buffer",
+            groupId: 'group2'
         };
         this.instance = new kafka.HighLevelConsumer(this.kClient.instance, topics, consumerOpts);
     }
@@ -19,6 +20,7 @@ class KConsumer {
             // Read string into a buffer.
             var buf = new Buffer.from(message.value, "binary");
             var decodedMessage = JSON.parse(buf.toString());
+            decodedMessage.offset = message.offset;
             console.log(decodedMessage);
         });
 
