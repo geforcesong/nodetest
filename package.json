@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/geforcesong/nodetest#readme",
   "dependencies": {
-    "eslint": "^5.8.0"
+    "eslint": "^5.8.0",
+    "kafka-node": "^3.0.1",
+    "uuid": "^3.3.2"
   }
 }
