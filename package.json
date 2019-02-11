@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "light-server -s . -p 7000",
+    "build": "webpack --config webpack.config.js",
+    "dev": "webpack --config webpack.config.js && light-server -s . -p 7000"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,13 @@
   "homepage": "https://github.com/geforcesong/nodetest#readme",
   "dependencies": {
     "eslint": "^5.8.0",
+    "jquery": "^3.3.1",
     "kafka-node": "^3.0.1",
-    "uuid": "^3.3.2"
+    "light-server": "^2.6.0",
+    "uuid": "^3.3.2",
+    "webpack": "^4.29.3"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.2.3"
   }
 }
