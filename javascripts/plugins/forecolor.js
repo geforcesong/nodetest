@@ -1,6 +1,7 @@
 class ForeColor {
     constructor() {
-        $.fn.forecolor = function (colorName) {
+        $.fn.forecolor = function (plugin) {
+            let colorName = plugin.data.forecolor;
             var color = colorName || 'yellow';
             return this.css('color', color);
         }
