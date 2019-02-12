@@ -1,7 +1,8 @@
 class ForeColor {
     constructor() {
-        $.fn.forecolor = function () {
-            return this.css('color', 'yellow');
+        $.fn.forecolor = function (colorName) {
+            var color = colorName || 'yellow';
+            return this.css('color', color);
         }
     }
 }
