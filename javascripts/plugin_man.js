@@ -2,7 +2,7 @@ import "./plugins/forecolor";
 import "./plugins/backcolor";
 
 
-function getPlugins(jqNode){
+$.getCuiPlugins = function(jqNode){
     let plugins = [];
     if(jqNode && jqNode[0] && jqNode[0].attributes && jqNode[0].attributes.length){
         $.each(jqNode[0].attributes, function (attr) {
@@ -25,7 +25,7 @@ function getPlugins(jqNode){
 $(document).ready(function () {
     $('[plugin^="cui-"]').each(function () {
         var $item = $(this);
-        var plugins = getPlugins($item);
+        var plugins = $.getCuiPlugins($item);
         for(var plugin of plugins){
             $item.removeAttr(plugin.name);
             $item[plugin.name](plugin);
