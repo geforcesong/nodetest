@@ -27,6 +27,7 @@
     "webpack": "^4.29.3"
   },
   "devDependencies": {
+    "expose-loader": "^0.7.5",
     "webpack-cli": "^3.2.3"
   }
 }
