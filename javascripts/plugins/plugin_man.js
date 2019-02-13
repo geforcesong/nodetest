@@ -1,5 +1,5 @@
-import "./plugins/forecolor";
-import "./plugins/backcolor";
+import "./forecolor";
+import "./backcolor";
 
 
 $.getCuiPlugins = function(jqNode){

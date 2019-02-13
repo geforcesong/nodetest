@@ -2,9 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './javascripts/plugin_man.js',
+    entry: {
+        main: './javascripts/plugins/plugin_man.js',
+        esmain: './javascripts/esplugins/main.js'
+    },
     output: {
-        filename: 'main.js',
         path: path.resolve(__dirname, 'dist')
     },
     mode: 'development',
