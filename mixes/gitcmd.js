@@ -14,7 +14,7 @@ const { exec } = require('child_process');
 
 async function executeCommand(command) {
     return new Promise((resolve, reject) => {
-        exec('git add .', (err, stdout, stderr) => {
+        exec(command, (err, stdout, stderr) => {
             if (err) {
                 return reject(err);
             }
@@ -29,6 +29,6 @@ async function executeCommand(command) {
 
 (async _=>{
     await executeCommand('git add .');
-    await executeCommand('git commit -am "hello"');
+    await executeCommand('git ci -am "hello"');
     await executeCommand('git push')
 })();
