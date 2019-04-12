@@ -4,7 +4,16 @@
     </head>
     <body>
         <h1>Web Components</h1>
-        <my-element foo="1" bar="2"></my-element>
+        <my-element foo="1" bar="2">
+            <span slot="my-text">Let's have some different text!</span>
+        </my-element>
+
+        <my-element foo="1" bar="2">
+            <ul slot="my-text">
+                <li>Let's have some different text!</li>
+                <li>In a list!</li>
+            </ul>
+        </my-element>
 
         <script src="/webcomponents/webcomponents.js"></script>
     </body>

@@ -20,6 +20,7 @@ class MyElement extends HTMLElement {
         </style>
         <div id="container">
             <p> This is test </p>
+            <slot name="my-text">My default text</slot>
         </div>`;
         this.container = this.shadowRoot.querySelector('#container');
     }
