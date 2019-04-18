@@ -24,7 +24,8 @@
     "kafka-node": "^3.0.1",
     "light-server": "^2.6.0",
     "uuid": "^3.3.2",
-    "webpack": "^4.29.3"
+    "webpack": "^4.29.3",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "expose-loader": "^0.7.5",
