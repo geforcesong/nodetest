@@ -24,7 +24,7 @@ function adjustHeap(arr, i, length) {
 // 堆排序
 function heapSort(arr) {
     // 初始化大顶堆，从第一个非叶子结点开始
-    for (let i = Math.floor(arr.length / 2 - 1); i >= 0; i--) {
+    for (let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
         adjustHeap(arr, i, arr.length);
     }
     // 排序，每一次for循环找出一个当前最大值，数组长度减一
