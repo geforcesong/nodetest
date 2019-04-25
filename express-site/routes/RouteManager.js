@@ -16,6 +16,7 @@ class RouteManager{
     register(){
         this.registerOne('get', '/', HomeController);
         this.registerOne('get', '/about', HomeController, 'loadAbout');
+        this.registerOne('post', '/entry', HomeController, 'loadEntry');
     }
 
     registerOne(method, path, Controller, view = 'loadView') {

@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/geforcesong/nodetest#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "csurf": "^1.10.0",
     "ejs": "^2.6.1",
     "eslint": "^5.8.0",
     "express": "^4.16.4",

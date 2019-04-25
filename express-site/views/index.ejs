@@ -2,5 +2,13 @@
     <head></head>
     <body>
         <h1><%=locals.title%></h1>
+        <form action="/entry" method="POST">
+            <div>
+                <label for="message">Enter a message</label>
+                <input id="message" name="message" type="text" />
+            </div>
+            <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>" />
+            <input type="submit" value="Submit" />
+        </form>
     </body>
 </html>
