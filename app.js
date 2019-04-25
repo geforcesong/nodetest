@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const csurf = require('csurf');
 const cookieParser = require('cookie-parser');
 const path = require('path');
+const csrfProtection = csurf({
+  cookie: true
+});
 
 const app = express()
 const routeManager = new RouteManager(app);
@@ -13,9 +16,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(cookieParser());
-app.use(csurf({
-  cookie: true
-}));
+app.use(csrfProtection);
 
 app.use(function(err, req, res, next) {
   if (err) {
