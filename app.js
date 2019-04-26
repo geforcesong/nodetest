@@ -5,9 +5,15 @@ const bodyParser = require('body-parser');
 const csurf = require('csurf');
 const cookieParser = require('cookie-parser');
 const path = require('path');
+const minimist = require('minimist');
+const fs = require('fs');
+const https = require('https');
+
 const csrfProtection = csurf({
   cookie: true
 });
+
+const inputOpts = minimist(process.argv.slice(2));
 
 const app = express()
 const routeManager = new RouteManager(app);
@@ -33,4 +39,14 @@ app.set('views', path.join(__dirname, 'express-site', 'views'));
 
 routeManager.register();
 
-app.listen(config.port, () => console.log(`Example app listening on port ${config.port}!`))
+if (inputOpts.https) {
+  const certOptions = {
+    key: fs.readFileSync(path.resolve('./httpscerts/server.key')),
+    cert: fs.readFileSync(path.resolve('./httpscerts/server.crt'))
+  }
+  https.createServer(certOptions, app).listen(config.https_port, function () {
+    console.log(`App listening on Go to https://localhost:${config.https_port}/`);
+  })
+} else {
+  app.listen(config.port, () => console.log(`App listening on Go to http://localhost:${config.port}/`))
+}
