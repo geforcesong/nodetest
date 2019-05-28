@@ -18,9 +18,10 @@ const inputOpts = minimist(process.argv.slice(2));
 const app = express()
 const routeManager = new RouteManager(app);
 
-// app.use(bodyParser.urlencoded({
-//   extended: true
-// }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 app.use(cookieParser());
 // app.use(csrfProtection);
 
