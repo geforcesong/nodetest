@@ -9,20 +9,20 @@ const minimist = require('minimist');
 const fs = require('fs');
 const https = require('https');
 
-const csrfProtection = csurf({
-  cookie: true
-});
+// const csrfProtection = csurf({
+//   cookie: true
+// });
 
 const inputOpts = minimist(process.argv.slice(2));
 
 const app = express()
 const routeManager = new RouteManager(app);
 
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
 app.use(cookieParser());
-app.use(csrfProtection);
+// app.use(csrfProtection);
 
 app.use(function(err, req, res, next) {
   if (err) {
