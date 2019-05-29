@@ -17,27 +17,54 @@ A solution set is:
 ]
 */
 
+function subArrays(arr) {
+  if (arr.length === 1) return [arr];
+  else {
+      subarr = subArrays(arr.slice(1));
+      var cmp = subarr.map(e => e.concat(arr[0]));
+      return subarr.concat(cmp, [[arr[0]]]);
+  }
+}
+
 var combinationSum = function (candidates, target) {
-    let ret =[];
-    if(!target || target<0 || !candidates || !candidates.length){
-        return [];
-    }
-    if(candidates.length === 1 && candidates[0] === target){
-        ret.push(candidates);
-        return ret;
-    }
-    
-    var cur = candidates[0];
-    let subg = combinationSum(candidates.slice(1), target-cur);
-    if(subg && subg.length){
-        subg.forEach(g=>{
-            g.unshift(cur);
-            ret.push(g);
-        })
-    }
-    return ret;
+    let k = subArrays(candidates).filter(c=>c.reduce((a,b)=>a+b) === target);
+    return removeDuplicate(k);
 };
 
-var c = combinationSum([2,3, 1, 3, 4], 5);
+var c = combinationSum([2,5,2,1,2], 5);
+
+function removeDuplicate(arr) {
+  if (!arr || !arr.length || arr.length === 1) {
+    return arr;
+  }
+  arr.map(c => { c = c.sort(); });
+  let final = [arr[0]];
+  for (var i = 1; i < arr.length; i++) {
+    let flag = true;
+    final.forEach(f => {
+      if (compare(f, arr[i])) {
+        flag = false;
+      }
+    })
+    if (flag) {
+      final.push(arr[i]);
+    }
+  }
+  return final;
+}
+
+function compare(arr1, arr2) {
+  if (arr1.length != arr2.length) {
+    return false;
+  }
+  var a = arr1.sort();
+  var b = arr2.sort();
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] != b[i]) {
+      return false;
+    }
+  }
+  return true;
+}
 
 console.log(c);
