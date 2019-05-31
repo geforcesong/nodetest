@@ -17,4 +17,12 @@ var merge = function (intervals) {
 
 
 
-console.log(merge(data));
+// console.log(merge(data));
+
+
+var insert = function(intervals, newInterval) {
+    intervals.push(newInterval);
+    return merge(intervals)
+};
+
+console.log(insert([[1,2],[3,5],[6,7],[8,10],[12,16]], [4,8]));
