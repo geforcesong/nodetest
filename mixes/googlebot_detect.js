@@ -1,6 +1,7 @@
 const dns = require('dns');
 
 function detectGoogleBot(ip) {
+
     return new Promise(function (resolve, reject) {
         dns.reverse(ip, (error, hosts) => {
             if (error) {
@@ -24,8 +25,18 @@ function detectGoogleBot(ip) {
 }
 
 (async _ => {
-    let c = await detectGoogleBot('66.149.66.1');
-    console.log(`66.149.66.1 ---> ${c}`);
-    c = await detectGoogleBot('66.249.66.1');
-    console.log(`66.249.66.1 ---> ${c}`);
+    var start = new Date();
+    let ip = '166.149.66.1';
+    let c = await detectGoogleBot(ip);
+    console.log(`${ip} ---> ${c}, cost ${(new Date()) - start} ms.`);
+
+    start = new Date();
+    ip = '66.249.66.1';
+    c = await detectGoogleBot(ip);
+    console.log(`${ip} ---> ${c}, cost ${(new Date()) - start} ms.`);
+
+    start = new Date();
+    ip = '66.249.90.77';
+    c = await detectGoogleBot(ip);
+    console.log(`${ip} ---> ${c}, cost ${(new Date()) - start} ms.`);
 })()
