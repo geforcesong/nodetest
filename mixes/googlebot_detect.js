@@ -4,7 +4,6 @@ function detectGoogleBot(ip) {
     return new Promise(function (resolve, reject) {
         dns.reverse(ip, (error, hosts) => {
             if (error) {
-                reject(error);
                 return resolve(false);
             }
 
@@ -14,6 +13,9 @@ function detectGoogleBot(ip) {
             }
 
             dns.lookup(hosts[0], (error, address) => {
+                if (error) {
+                    return resolve(false);
+                }
                 const match = address === ip;
                 return resolve(match);
             });
@@ -25,5 +27,5 @@ function detectGoogleBot(ip) {
     let c = await detectGoogleBot('66.149.66.1');
     console.log(`66.149.66.1 ---> ${c}`);
     c = await detectGoogleBot('66.249.66.1');
-    console.log(`66.249.66.1 ---> ${c}`);    
+    console.log(`66.249.66.1 ---> ${c}`);
 })()
