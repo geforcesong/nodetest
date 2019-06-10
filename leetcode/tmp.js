@@ -1,24 +1,25 @@
-var merge = function(nums1, m, nums2, n) {
-    nums2.forEach(c=>{
-        let i = 0;
-        while(nums1[i]<c) i++;
-        if(i>=m){
-            nums1[m] = c;
-            m ++;
-        } else{
-            for(var j=m;j>i;j--){
-                nums1[j] = nums1[j-1];
-            }
-            nums1[j] = c;
-            m++;
-        }
-        console.log(nums1);
-    })
-    return nums1;
+class TreeNode {
+    constructor(left, right, val) {
+        this.left = left;
+        this.right = right;
+        this.val = val;
+    }
+}
+
+let root = new TreeNode(null, null, 1);
+let right = root.right = new TreeNode(null, null, 2);
+
+right.left = new TreeNode(null, null, 3);
+
+var inorderTraversal = function (root) {
+    let ret = [];
+    if(root){
+        let left = inorderTraversal(root.left);
+        ret = ret.concat(left);
+        ret.push(root.val);
+        ret = ret.concat(inorderTraversal(root.right));
+    }
+    return ret;
 };
 
-console.log(merge([1,2,3,0,0,0]
-    ,3
-    ,[2,5,6]
-    ,3
-    ));
+console.log(inorderTraversal(root));
