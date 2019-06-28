@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'express-site', 'public')));
 // app.use(csrfProtection);
 
 app.use(function(err, req, res, next) {
