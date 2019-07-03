@@ -32,6 +32,8 @@
     "light-server": "^2.6.0",
     "minimist": "^1.2.0",
     "pg": "^7.11.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
     "uuid": "^3.3.2",
     "webpack": "^4.29.3",
     "winston": "^3.2.1"
