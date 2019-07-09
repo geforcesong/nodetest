@@ -6,7 +6,8 @@
   "scripts": {
     "start": "light-server -s . -p 7000",
     "build": "webpack --config webpack.config.js",
-    "dev": "webpack --config webpack.config.js && light-server -s . -p 7000"
+    "dev": "webpack --config webpack.config.js && light-server -s . -p 7000",
+    "gqserver": "nodemon graphql-server.js"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
   },
   "devDependencies": {
     "expose-loader": "^0.7.5",
+    "nodemon": "^1.19.1",
     "webpack-cli": "^3.2.3"
   }
 }
