@@ -4,7 +4,9 @@ const {
     GraphQLInt,
     GraphQLNonNull
 } = require('graphql');
-const { BookType, AuthorType } = require('./model-types');
+// const { BookType, AuthorType } = require('./model-types');
+const AuthorType = require('./AuthorType');
+const BookType = require('./BookType');
 const authors = require('./authors')
 const books = require('./books');
 
