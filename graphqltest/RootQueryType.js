@@ -1,15 +1,16 @@
 const {
     GraphQLObjectType
 } = require('graphql');
+const glob = require('glob');
+const path = require('path');
 
-const authq = require('./fakedb/queries/author.query');
-const bookq = require('./fakedb/queries/book.query');
+const rootQuery = {};
+glob.sync(path.join(__dirname, '/fakedb/queries/*.js')).forEach((file) => {
+    Object.assign(rootQuery, require(file));
+});
 
 module.exports = new GraphQLObjectType({
     name: 'Query',
     description: 'Root Query',
-    fields: () => ({
-        ...authq,
-        ...bookq
-    })
+    fields: () => (rootQuery)
 });

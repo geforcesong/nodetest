@@ -51,7 +51,6 @@ const RootMutationType = require('./graphqltest/RootMutationType');
 //     })
 // });
 
-
 const schema = new GraphQLSchema({
     query: RootQueryType,
     mutation: RootMutationType
