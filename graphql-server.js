@@ -4,8 +4,8 @@ const {
     GraphQLSchema
 } = require('graphql');
 const expressGraphQL = require('express-graphql');
-const RootQueryType = require('./graphqltest/fakedb/RootQueryType');
-const RootMutationType = require('./graphqltest/fakedb/RootMutationType');
+const RootQueryType = require('./graphqltest/RootQueryType');
+const RootMutationType = require('./graphqltest/RootMutationType');
 // const helloworldSchema = new GraphQLSchema({
 //     query: new GraphQLObjectType({
 //         name: 'HelloWorld',
