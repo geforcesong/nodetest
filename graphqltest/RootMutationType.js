@@ -7,7 +7,6 @@ const path = require('path');
 
 const rootMutation = {};
 glob.sync(path.join(__dirname, '/**/mutations/*.js')).forEach((file) => {
-    console.log(file);
     Object.assign(rootMutation, require(file));
 });
 
