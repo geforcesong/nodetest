@@ -3,6 +3,7 @@ const {
     GraphQLString,
     GraphQLList,
     GraphQLInt,
+    GraphQLInputObjectType,
     GraphQLNonNull
 } = require('graphql');
 const CategoryFactory = require('../factories/categoryFactory');
@@ -29,4 +30,21 @@ const ProductType = new GraphQLObjectType({
     }
 });
 
+const ProductInputType = new GraphQLInputObjectType({
+    name: 'ProductInput',
+    description: 'Input product payload',
+    fields: () => ({
+        id: {
+            type: GraphQLNonNull(GraphQLInt),
+        },
+        name: {
+            type: new GraphQLNonNull(GraphQLString),
+        },
+        categoryId: {
+            type: GraphQLNonNull(GraphQLInt),
+        }
+    }),
+});
+
 module.exports = ProductType;
+module.exports.ProductInputType = ProductInputType;

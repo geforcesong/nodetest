@@ -27,6 +27,14 @@ class ProductFactory extends BaseFactory {
         let product = await this.poolClient.query(`DELETE FROM PRODUCT WHERE id=${id} RETURNING id;`);
         return id;
     }
+
+    async updateProduct(newProduct){
+        const query= `UPDATE PRODUCT SET categoryid=${newProduct.categoryId}, "name"='${newProduct.name}' where id=${newProduct.id} RETURNING id, createddate;`
+        console.log(query);
+        const ret = await this.poolClient.query(query);
+        const row = ret.rows[0];
+        return new Product(row.id, newProduct.name, newProduct.categoryId, row.createddate);
+    }
 }
 
 module.exports = ProductFactory;
