@@ -15,6 +15,15 @@ class CategoryFactory extends BaseFactory {
         }
         return null;
     }
+
+    async getCategoryById(id) {
+        let categories = await this.poolClient.query(`select * from category where id=${id};`);
+        if(categories.rows && categories.rows.length){
+            var c = categories.rows[0];
+            return new Category(c.id, c.name, c.createddate)
+        }
+        return null;
+    }
 }
 
 module.exports = CategoryFactory;
