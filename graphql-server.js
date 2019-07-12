@@ -64,6 +64,18 @@ const schema = new GraphQLSchema({
 //     // }
 // }))
 
+const extensions = ({
+    document,
+    variables,
+    operationName,
+    result,
+    context,
+  }) => {
+    return {
+      runTime: Date.now() - context.startTime,
+    };
+  };
+
 app.use('/graphql', expressGraphQL((request,response) => {
     return {
         schema: schema,
@@ -76,7 +88,8 @@ app.use('/graphql', expressGraphQL((request,response) => {
                 location: err.locations,
                 path: err.path
             }
-        }
+        },
+        extensions
     }
 }));
 
