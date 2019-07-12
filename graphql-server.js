@@ -56,12 +56,28 @@ const schema = new GraphQLSchema({
     mutation: RootMutationType
 })
 
-app.use('/graphql', expressGraphQL({
-    schema: schema,
-    graphiql: true
-    // customFormatErrorFn:(err)=>{
-    //     return {message: err.message, code: 500}
-    // }
-}))
+// app.use('/graphql', expressGraphQL({
+//     schema: schema,
+//     graphiql: true
+//     // customFormatErrorFn:(err)=>{
+//     //     return {message: err.message, code: 500}
+//     // }
+// }))
+
+app.use('/graphql', expressGraphQL((request,response) => {
+    return {
+        schema: schema,
+        graphiql: true,
+        context: { startTime: Date.now(), request, response },
+        customFormatErrorFn:(err)=>{
+            response.status(500)
+            return {
+                message: err.message,
+                location: err.locations,
+                path: err.path
+            }
+        }
+    }
+}));
 
 app.listen(5000, () => { console.log('graphql server is running....') });
