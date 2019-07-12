@@ -20,5 +20,17 @@ module.exports = {
             const product = await factory.addProduct(args.name, args.categoryId);
             return product;
         }
+    },
+    deleteProduct: {
+        type: GraphQLInt,
+        description: 'Delete a product',
+        args: {
+            id: { type: GraphQLNonNull(GraphQLInt) }
+        },
+        resolve: async (parent, args) => {
+            const factory = new ProductFactory()
+            const id = await factory.deleteProduct(args.id);
+            return id;
+        }
     }
 }
