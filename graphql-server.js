@@ -59,6 +59,9 @@ const schema = new GraphQLSchema({
 app.use('/graphql', expressGraphQL({
     schema: schema,
     graphiql: true
+    // customFormatErrorFn:(err)=>{
+    //     return {message: err.message, code: 500}
+    // }
 }))
 
 app.listen(5000, () => { console.log('graphql server is running....') });

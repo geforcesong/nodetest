@@ -30,7 +30,6 @@ class ProductFactory extends BaseFactory {
 
     async updateProduct(newProduct){
         const query= `UPDATE PRODUCT SET categoryid=${newProduct.categoryId}, "name"='${newProduct.name}' where id=${newProduct.id} RETURNING id, createddate;`
-        console.log(query);
         const ret = await this.poolClient.query(query);
         const row = ret.rows[0];
         return new Product(row.id, newProduct.name, newProduct.categoryId, row.createddate);
