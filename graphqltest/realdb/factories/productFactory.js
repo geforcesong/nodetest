@@ -15,6 +15,13 @@ class ProductFactory extends BaseFactory {
         }
         return null;
     }
+
+    async addProduct(name, categoryId){
+        const date = new Date();
+        let product = await this.poolClient.query(`INSERT INTO product("name", categoryid, createddate) VALUES('${name}', ${categoryId}, '${date.toISOString()}') RETURNING id;`);
+        const id = product.rows[0].id;
+        return new Product(id, name, categoryId, date);
+    }
 }
 
 module.exports = ProductFactory;
