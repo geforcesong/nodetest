@@ -1,2 +1,15 @@
-var inflection = require( 'inflection' );
-console.log(inflection.pluralize('hell_slkj_aoy'));
+class A {
+    constructor() {
+        this.name = 'A';
+        return {
+            m: 1
+        };
+    }
+
+    display() {
+        console.log(this);
+    }
+}
+
+var c = new A()
+console.log(c);
