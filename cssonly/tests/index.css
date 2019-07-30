@@ -1,0 +1,25 @@
+.level1{
+    background: red;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin-left: 100px;
+}
+
+.level2{
+    background: yellow;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+
+.level3{
+    background: blue;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
