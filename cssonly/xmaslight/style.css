@@ -1,0 +1,76 @@
+body{
+    background-color: #111;
+    margin: 0;
+}
+
+h1{
+    text-align: center;
+    color: white;
+}
+
+#wire{
+    text-align: center;
+    white-space: nowrap;
+    position: absolute;
+    padding: 0;
+    width: 100%;
+    border-bottom: solid 3px #222;
+    top:-80px;
+    height: 100px;
+}
+
+#wire li{
+    position: relative;
+    list-style-type: none;
+    margin: 0 15px;
+    padding: 0;
+    display: inline-block;
+    width: 15px;
+    height: 30px;
+    border-radius: 50%;
+    top:102px;
+    background-color: white;
+    animation-name: even-flash;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+#wire li:nth-child(odd){
+    animation-name: odd-flash;
+}
+
+#wire li::before{
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    border-radius: 4px;
+    top:-5px;
+    left: 0;
+    background-color: #444;
+    content: "";
+}
+
+@keyframes even-flash{
+    50%{
+        background-color: rgba(255, 230, 65, 1);
+        box-shadow: 0px 2px 20px 4px rgba(255, 230, 65, 1);
+    }
+
+    0%, 100%{
+        background-color: rgba(255, 230, 65, 0.5);
+        box-shadow: 0px 2px 20px 4px rgba(255, 230, 65, 0.3);
+    }
+}
+
+@keyframes odd-flash{
+    0%, 100%{
+        background-color: rgba(255, 65, 185, 1);
+        box-shadow: 0px 2px 20px 4px rgba(255, 65, 185, 1);
+    }
+
+    50%{
+        background-color: rgba(255, 65, 185, 0.5);
+        box-shadow: 0px 2px 20px 4px rgba(255, 65, 185, 0.3);
+    }
+}
