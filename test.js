@@ -13,7 +13,8 @@ async function test(){
 test().then(c=>{
     c.then(d=>{
         console.log(d);
-        console.log('master');
+        console.log('dev');
         console.log('nono');
+        console.log('devnono');
     })
 })
