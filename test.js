@@ -15,6 +15,5 @@ test().then(c=>{
         console.log(d);
         console.log('dev');
         console.log('nono');
-        console.log('devnono');
     })
 })
