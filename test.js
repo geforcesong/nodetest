@@ -1,21 +1,17 @@
-var a = 1, b = 2;
-var d = 'abc';
-function tag(strings, ...values) {
-    console.log(strings); // "Hello "
-    console.log(values);  // 50
-    return "Bazinga!";
-}
- 
-var c = tag`
-    {
-        book {
-            name
-            id
-            ${a}
-            ${d}
-            mm
-        }
-    }
-`;
+class A{}
 
-console.log(c);
+async function test(){
+    return new Promise((resolve)=>{
+        return null;
+    });
+}
+
+// (async _=>{
+    
+// })()
+
+test().then(c=>{
+    c.then(d=>{
+        console.log(d);
+    })
+})
