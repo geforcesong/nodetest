@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "light-server -s . -p 7000",
+    "start": "light-server -s . -p 7000 -w \"./**/*.html, ./**/*.css, ./**/*.js\"",
     "build": "webpack --config webpack.config.js",
     "dev": "webpack --config webpack.config.js && light-server -s . -p 7000",
     "gqserver": "nodemon graphql-server.js"
