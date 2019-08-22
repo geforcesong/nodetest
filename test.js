@@ -1,7 +1,6 @@
-test().then(c=>{
-    c.then(d=>{
-        console.log(d);
-        console.log('dev');
-        console.log('nono');
-    })
-})
+function curry(a){
+    
+}
+
+var add = curry(1)
+console.log(add(2)(3));
