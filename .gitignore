@@ -9,3 +9,4 @@ public/*.css
 web/**/*.css
 package-lock.json
 *.heapsnapshot
+typescripts/*.js
