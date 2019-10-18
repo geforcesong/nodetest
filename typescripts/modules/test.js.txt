@@ -1,0 +1,10 @@
+function extinguish(theta) {
+    console.log(theta);
+ }
+ module.exports = extinguish;
+
+
+ /////
+
+ 我们需要这样调用:
+ tsc mytest.ts --module commonjs --esModuleInterop && node mytest.js
