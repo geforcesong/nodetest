@@ -1,0 +1,1 @@
+document.cookie = "local_v=1";

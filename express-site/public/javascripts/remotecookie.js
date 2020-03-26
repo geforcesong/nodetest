@@ -1,0 +1,1 @@
+document.cookie = "remote_v=1";

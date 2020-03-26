@@ -1,10 +1,11 @@
 class HomeController {
     async loadView(req, res) {
-        return res.render('index', { title: 'Andy', csrfToken: req.csrfToken() });
+        //return res.render('index', { title: 'Andy', csrfToken: req.csrfToken() });
+        return res.render('index', { title: 'Hello' });
     }
 
     async loadAbout(req, res) {
-        return res.render('index', { title: 'george' });
+        return res.render('index', { title: 'World' });
     }
 
     async loadEntry(req, res){
