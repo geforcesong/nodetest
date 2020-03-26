@@ -7,4 +7,4 @@ setTimeout(() => {
     var cookie = document.cookie;
     console.log(cookie);
     console.log('Read cookie from local Finished!!');
-}, 3000);
+}, 5000);

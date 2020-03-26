@@ -1,4 +1,4 @@
-document.cookie = "remote_v=2";
+document.cookie = "remote_v=3";
 
 setTimeout(() => {
     console.log();

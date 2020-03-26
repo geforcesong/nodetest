@@ -1,7 +1,7 @@
 <html>
     <head>
         <script src="/javascripts/cookietest.js"></script>
-        <script src="https://geforcesong.github.io/nodetest/express-site/public/javascripts/remotecookie1.js"></script>
+        <script src="https://geforcesong.github.io/nodetest/express-site/public/javascripts/remote2.js"></script>
     </head>
     <body>
         <h1><%=locals.title%></h1>
@@ -12,6 +12,8 @@
             </div>
             <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>" />
             <input type="submit" value="Submit" />
+
+            <iframe src="https://geforcesong.github.io/nodetest/express-site/public/javascripts/ifpage.html" frameborder="0"></iframe>
         </form>
     </body>
 </html>
