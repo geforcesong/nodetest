@@ -40,7 +40,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'express-site', 'views'));
 
 routeManager.register();
-if (1||inputOpts.https) {
+if (inputOpts.https) {
   const certOptions = {
     key: fs.readFileSync(path.resolve('./httpscerts/server.key')),
     cert: fs.readFileSync(path.resolve('./httpscerts/server.crt'))
