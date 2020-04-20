@@ -1,29 +1,29 @@
 
-let Q = [];
+let countG1 = 0, countG2 = 0;
 
-function asyncCall(name){
-    let task = new Promise((resolve, reject)=>{
-        Q.push({resolve: resolve.bind(this), reject:reject.bind(this)});
-    });
-    task.then(()=>{
-        console.log(`Task ${name} is done`);
-    }).catch(()=>{
-        console.log(`Task ${name} is canceled.`);
-    });
-    return task;
+async function test(){
+    for (let i = 0; i < 31836; i++) {
+        const rnd = await Gen();
+        if (rnd < 50) {
+            countG1++
+        } else if (rnd >= 50 && rnd < 100) {
+            countG2++;
+        } else {
+            throw new Error('What happened here:' + rnd);
+        }
+        console.log(`countG1:${countG1}, countG2:${countG2}, ratio:${countG1 / countG2}`);
+    }
 }
 
-asyncCall('task1');
-asyncCall('task2');
+async function Gen() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const rnd = Math.floor(Math.random() * 100);
+            resolve(rnd);
+        }, 5);
+    });
+}
 
-setTimeout(()=>{
-    console.log('Now start tasks');
-    while(Q.length){
-        let c = Q.pop();
-        if(Q.length %2==0){
-            c['resolve']();
-        } else{
-            c['reject']();
-        }
-    }
-}, 5000)
+(async _=>{
+    await test();
+})();
