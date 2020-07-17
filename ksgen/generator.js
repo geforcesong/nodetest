@@ -25,7 +25,7 @@ class Question {
 
 function gen(doc, date, isFirst) {
     const total = 40;
-    const GAP = '                         ';
+    const GAP = '                ';
     const lines = [];
     const lineCount = Math.floor(total / 3);
     for (let i = 0; i < lineCount; i++) {
@@ -55,11 +55,11 @@ function genPdf(doc, date, lines, isFirst) {
     lines.forEach((line, index) => {
         doc
             .fontSize(18)
-            .text(line, 50, (index + 1) * 45);
+            .text(line, 50, (index + 1) * 45 + 50) ;
     })
 
     doc.font('/System/Library/Fonts/PingFang.ttc', 'PingFangSC-Regular')
-        .fontSize(12).text(`郭一辰（${dateStr}）`, 10, 10);
+        .fontSize(12).text(`郭一辰（${dateStr}）       用时：            错误：      `, 10, 10);
     
 }
 
