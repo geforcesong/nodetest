@@ -1,3 +1,5 @@
 import bar from './module1';
 
-bar();
+console.log(bar)
+
+bar.bar();
