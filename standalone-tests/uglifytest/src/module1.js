@@ -1,12 +1,5 @@
-function showName(name) {
-    console.log(`hello ${name}`);
-}
+export default function bar() {
+    const a = 10;
 
-function showAge(age) {
-    console.log(`I am ${age} years old`);
-}
-
-export default {
-    showName,
-    showAge
+    console.log(`hee:${a - 5}`);
 }
