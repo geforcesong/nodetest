@@ -1,5 +1,6 @@
 const path = require('path');
-
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const isDev = false;
 
@@ -17,5 +18,11 @@ module.exports = {
             }
         ]
     },
-    mode: 'development'
+    optimization: {
+        minimizer: [
+            new OptimizeCSSAssetsPlugin({}),
+            '...'
+        ]
+    },
+    mode: 'production'
 };
