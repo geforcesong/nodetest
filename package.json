@@ -50,12 +50,12 @@
     "sequelize": "^5.10.1",
     "uservoice-nodejs": "0.0.13",
     "uuid": "^3.3.2",
-    "webpack": "^4.29.3",
+    "webpack": "^4.44.2",
     "winston": "^3.2.1"
   },
   "devDependencies": {
     "expose-loader": "^0.7.5",
     "nodemon": "^1.19.1",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.3.12"
   }
 }
