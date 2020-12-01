@@ -2,7 +2,7 @@ class IndexDBHelper {
     constructor() {
         this.dbName = 'MyNewSite';
         this.storeName = 'SitesData';
-        this.version = 8;
+        this.version = 12;
         this.database = null;
     }
 
@@ -26,10 +26,18 @@ class IndexDBHelper {
             };
             request.onupgradeneeded = function (event) {
                 var db = event.target.result;
-                // Create an objectStore to hold information about our customers. We're
-                // going to use "ssn" as our key path because it's guaranteed to be
-                // unique - or at least that's what I was told during the kickoff meeting.
-                db.createObjectStore(self.storeName, { keyPath: "key" });
+                try {
+                    const s = request.transaction.objectStore(self.storeName);
+                } catch {
+                    db.createObjectStore(self.storeName, { keyPath: "key" });
+                }
+                db.onversionchange = function (event) {
+                    db.close();
+                    console.log("A new version of this page is ready. Please reload or close this tab!");
+                };
+            };
+            request.onblocked = function (event) {
+                console.log("Please close all other tabs with this site open!");
             };
         });
     }
@@ -68,6 +76,9 @@ class IndexDBHelper {
     }
 
     async delete(key) {
+        if (!this.database) {
+            throw new Error('Database is not init successfully');
+        }
         const tx = this.database.transaction([this.storeName], 'readwrite');
         const store = tx.objectStore(this.storeName);
         store.delete(key);
@@ -116,16 +127,16 @@ btnSave.addEventListener('click', async function (el) {
 
     await IndexDBHelper.getInstance().add({
         key: 'hotleadCount',
-        value: 301
+        value: 12301
     });
     await IndexDBHelper.getInstance().add({
         key: 'visitedCount',
-        value: 302
+        value: 9302
     });
 
     await IndexDBHelper.getInstance().add({
         key: 'visitedCount1',
-        value: 303
+        value: 9303
     });
 
     const data = await IndexDBHelper.getInstance().get('hotleadCount');
