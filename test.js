@@ -2,7 +2,7 @@
 let countG1 = 0, countG2 = 0;
 
 async function test(){
-    for (let i = 0; i < 31836; i++) {
+    for (let i = 0; i < 31837; i++) {
         const rnd = await Gen();
         if (rnd < 50) {
             countG1++
