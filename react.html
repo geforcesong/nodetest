@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+
+    <script type="text/babel">
+        class App extends React.Component{
+            state = {
+                name: 'George',
+                age: 39
+
+            }
+
+            handleClick = (e) => {
+                this.setState({
+                    name: 'Guo'
+                });
+            }
+
+            handleMouseOver(e){
+                console.log(e.target);
+            }
+
+            handleChange = (e) =>{
+                this.setState({
+                    name: e.target.value
+                });
+            }
+
+            handleSubmit = (e) =>{
+                e.preventDefault();
+                console.log(this.state.name);
+
+            }
+
+            render(){
+                return (
+                    <div className="myclass">
+                        <h1>Hey { `${this.state.name}, and age is ${this.state.age}` }</h1>
+                        <p>{ Math.random() * 10 }</p>
+                        <form onSubmit={this.handleSubmit}>
+                            <input type="text" onChange={this.handleChange}/>
+                            <button>Submit</button>
+                        </form>
+
+                        <button onClick={ this.handleClick }>Click Me</button>
+                        <button onMouseOver={ this.handleMouseOver }>Mouse Over Me</button>
+
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById('app'));
+    </script>
+</body>
+</html>
