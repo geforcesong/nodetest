@@ -1,12 +1,21 @@
-class Person{
-    constructor(){
-        const name1='George';
-    }
+const list = [
+  { name: "george", ename: "guosong", like: "apple" },
+  { name: "Jenny", ename: "yiqing", like: "apple pie" },
+  { name: "tom", ename: "likou", like: "orange" },
+  { name: "John", ename: "shadongxi", like: "banana" },
+  { name: "Kevin", ename: "suibian", like: "grape" },
+];
 
-    disp(){
-        console.log(this.name1);
-    }
-}
+const searchFields = ["name", "ename", "like"];
 
-var c= new Person();
-c.disp();
+const searchFunc = (text) => {
+  return list.filter((c) => {
+    return searchFields.reduce((prev, cur) => {
+      return prev || c[cur]?.toUpperCase().includes(text.toUpperCase());
+    }, false);
+  });
+};
+
+const result = searchFunc("guo");
+
+console.log(result);
