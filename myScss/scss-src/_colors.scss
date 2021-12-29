@@ -1,6 +1,13 @@
+@debug $colors;
 @each $key, $val in $colors {
   .text-#{$key} {
     color: $val;
+  }
+
+  .text-hover-#{$key} {
+      &:hover {
+          color: $val;
+      }
   }
 
   .bg-#{$key} {

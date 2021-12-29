@@ -1,4 +1,29 @@
-@import 'variables';
-@import 'base';
-@import 'colors';
-@import 'components/_card.scss'
+@import "functions";
+@import "variables";
+@import "breakpoints.scss";
+@import "base";
+@import "colors";
+@import "components/_card.scss";
+@import "components/_button.scss";
+@import "_utilities.scss";
+@import "_grid.scss";
+
+//test breakpoints
+.responsive-test {
+  color: white;
+  @include xs {
+    background-color: red;
+  }
+  @include sm {
+    background-color: black;
+  }
+  @include md {
+    background-color: blue;
+  }
+  @include lg {
+    background-color: orange;
+  }
+  @include xl {
+    background-color: brown;
+  }
+}

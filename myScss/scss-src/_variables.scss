@@ -10,6 +10,7 @@ $colors: (
   "info": $info,
   "black": black,
   "white": white,
+  "orange": orange,
 );
 
 @debug map-get($colors, "primary");
@@ -21,8 +22,6 @@ $colors: (
     "pink": pink,
   )
 );
-
-@debug $colors;
 
 $base-padding: 0.75rem;
 $base-margin: 0.75rem;
