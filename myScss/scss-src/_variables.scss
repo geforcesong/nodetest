@@ -1,7 +1,7 @@
-$primary: #326dee;
-$secondary: #1ac888;
-$error: #d32752;
-$info: #f6c31c;
+$primary: #326dee !default;
+$secondary: #1ac888 !default;
+$error: #d32752 !default;
+$info: #f6c31c !default;
 
 $colors: (
   "primary": $primary,
@@ -23,14 +23,14 @@ $colors: (
   )
 );
 
-$base-padding: 0.75rem;
-$base-margin: 0.75rem;
+$base-padding: 0.75rem !default;
+$base-margin: 0.75rem !default;
 
-$base-border-thickness: 1px;
-$base-border-radius: 20px;
+$base-border-thickness: 1px !default;
+$base-border-radius: 20px !default;
 
-$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1) !default;
 
-$base-font-size: 1rem;
-$base-font-size-sm: $base-font-size * 0.75;
-$base-font-size-lg: $base-font-size * 1.5;
+$base-font-size: 1rem !default;
+$base-font-size-sm: $base-font-size * 0.75 !default;
+$base-font-size-lg: $base-font-size * 1.5 !default;

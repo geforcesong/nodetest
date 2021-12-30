@@ -5,12 +5,15 @@
 @import "colors";
 @import "components/_card.scss";
 @import "components/_button.scss";
+@import "components/navbar";
 @import "_utilities.scss";
 @import "_grid.scss";
 
 //test breakpoints
 .responsive-test {
   color: white;
+  margin: $base-margin;
+  
   @include xs {
     background-color: red;
   }
