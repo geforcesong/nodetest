@@ -1,0 +1,20 @@
+.circle {
+  --circle-size: 100px;
+  --mask-size: 5px;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  background: conic-gradient(red 275deg, orange 275deg);
+  border-radius: 50%;
+  position: relative;
+}
+
+.circle::before {
+    content: '';
+    width: calc(var(--circle-size) - var(--mask-size) * 2);
+    height: calc(var(--circle-size) - var(--mask-size) * 2);
+    background-color: blue;
+    position: absolute;
+    left: var(--mask-size);
+    top: var(--mask-size);
+    border-radius: 50%;
+}

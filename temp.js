@@ -1,35 +1,43 @@
-const board = [[1, 0, 2],
-               [1, 1, 2],
-               [1, 2, 2]]
-function check() {
-    const w1 = win(1);
-    const w2 = win(2);
-    if (w1 && w2) {
-        return 0;
+const monster1 = { eyeCount: 4 };
+
+const handler1 = {
+  set(obj, prop, value) {
+    console.log('set log:', obj, prop, value);
+    if ((prop === 'eyeCount') && ((value % 2) !== 0)) {
+      console.log('Monsters must have an even number of eyes');
+    } else {
+      console.log('before:', monster1);
+      const ret = Reflect.set(...arguments);
+      console.log('end:', monster1);
+      console.log(`ret: `, ret);
+      return ret;
     }
-    if (w1) {
-        return 1;
+  },
+  get(target, prop, receiver) {
+    console.log('get log:', target, prop, receiver);
+    if (prop === 'secret') {
+      return `... shhhh!`;
     }
-    if (w2) {
-        return 2;
-    }
-    return -1;
-}
-function win(flag) {
-    for (let i = 0; i < 3; i++) {
-        if (flag == board[i][0] && flag == board[i][1] && flag == board[i][2]) {
-            return true;
-        }
-        if (flag == board[0][i] && flag == board[1][i] && flag == board[2][i]) {
-            return true;
-        }
-    }
-    if (flag == board[0][0] && flag == board[1][1] && flag == board[2][2]) {
-        return true;
-    }
-    if (flag == board[2][0] && flag == board[1][1] && flag == board[0][2]) {
-        return true;
-    }
-    return false;
-}
-console.log(check());
+    return Reflect.get(...arguments);
+  }
+};
+
+// const proxy1 = new Proxy(monster1, handler1);
+
+
+// console.log(Array.isArray( Reflect.ownKeys({age:1})));
+
+// proxy1.eyeCount = 1;
+// // expected output: "Monsters must have an even number of eyes"
+
+// console.log(proxy1.eyeCount);
+// // expected output: 4
+
+// proxy1.eyeCount = 2;
+// console.log(proxy1.eyeCount);
+
+
+// proxy1.age = 100;
+// console.log(proxy1.age);
+// console.log(proxy1.secret);
+
