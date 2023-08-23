@@ -1,0 +1,39 @@
+:root {
+  --scroll: 0;
+}
+
+body {
+  background-color: #e6e9ea;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.fullscreen-section {
+  height: 100vh;
+}
+
+.section2 {
+  background-color: pink;
+}
+
+.section3 {
+  background-color: yellow;
+}
+
+.section4 {
+  background-color: lightseagreen;
+}
+
+.top-section {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 99, 71, var(--background-opacity));
+  /* (oldVal - oldMin) * newRange / oldRange + newMin */
+  translate: 0 calc(-1% * (max(var(--scroll), 25) - 25) * 100 / 75);
+  --background-opacity: calc(100% - 1% * min(var(--scroll), 30) * 100 / 30);
+}
